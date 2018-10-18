@@ -49,8 +49,10 @@ namespace UnrealBuildTool.Rules
                 PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_octree_release.lib"));
                 PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_ml_release.lib"));
                 PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_kdtree_release.lib"));
-                //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_sample_consensus_release.lib"));
+                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_sample_consensus_release.lib"));
                 PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_search_release.lib"));
+                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_features_release.lib"));
+                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_registration_release.lib"));
                 //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_filters_release.lib"));
                 //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_visualization_release.lib"));
 
