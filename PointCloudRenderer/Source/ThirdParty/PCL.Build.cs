@@ -43,18 +43,20 @@ namespace UnrealBuildTool.Rules
                 PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "Boost/lib/libboost_system-vc141-mt-1_64.lib"));
                 PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "Boost/lib/libboost_thread-vc141-mt-1_64.lib"));
 
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_common_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_io_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_io_ply_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_octree_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_ml_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_kdtree_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_sample_consensus_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_search_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_features_release.lib"));
-                PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_registration_release.lib"));
-                //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_filters_release.lib"));
-                //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "PCL_181/lib/pcl_visualization_release.lib"));
+
+
+                string PCLDirectory = Path.Combine(ModulePath, "PCL_181/lib/");
+                string[] dlls = Directory.GetFiles(PCLDirectory, "*.dll");
+                for (int i = 0; i < dlls.Length; i++)
+                {
+                    RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(PCLDirectory, dlls[i])));
+                }
+                string[] libs = Directory.GetFiles(PCLDirectory, "*.lib");
+                for (int i = 0; i < libs.Length; i++)
+                {
+                    PublicAdditionalLibraries.Add(Path.Combine(PCLDirectory, libs[i]));
+                }
+
 
                 //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "FLANN/lib/flann_s.lib"));
                 //PublicAdditionalLibraries.Add(Path.Combine(ModulePath, "FLANN/lib/flann.lib"));
