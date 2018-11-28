@@ -23,7 +23,7 @@
 
 /* #undef HAVE_QHULL_2011 */
 
-#define HAVE_CUDA 1
+/* #undef HAVE_CUDA */
 
 /* #undef HAVE_FZAPI */
 

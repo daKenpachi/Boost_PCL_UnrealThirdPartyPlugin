@@ -45,13 +45,14 @@ namespace UnrealBuildTool.Rules
 
 
 
-                string PCLDirectory = Path.Combine(ModulePath, "PCL/lib/");
+                string PCLDirectory = Path.Combine(ModulePath, "PCL/bin/");
                 string[] dlls = Directory.GetFiles(PCLDirectory, "*.dll");
                 for (int i = 0; i < dlls.Length; i++)
                 {
                     RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(PCLDirectory, dlls[i])));
                 }
-                string[] libs = Directory.GetFiles(PCLDirectory, "*.lib");
+                PCLDirectory = Path.Combine(ModulePath, "PCL/lib/");
+				string[] libs = Directory.GetFiles(PCLDirectory, "*.lib");
                 for (int i = 0; i < libs.Length; i++)
                 {
                     PublicAdditionalLibraries.Add(Path.Combine(PCLDirectory, libs[i]));
