@@ -45,7 +45,7 @@ namespace UnrealBuildTool.Rules
 
 
 
-                string PCLDirectory = Path.Combine(ModulePath, "PCL_181/lib/");
+                string PCLDirectory = Path.Combine(ModulePath, "PCL/lib/");
                 string[] dlls = Directory.GetFiles(PCLDirectory, "*.dll");
                 for (int i = 0; i < dlls.Length; i++)
                 {
@@ -67,7 +67,7 @@ namespace UnrealBuildTool.Rules
             {
                 PublicIncludePaths.Add(Path.Combine(ModulePath, "Eigen/eigen3"));
                 PublicIncludePaths.Add(Path.Combine(ModulePath, "Boost/include/boost-1_64"));
-                PublicIncludePaths.Add(Path.Combine(ModulePath, "PCL_181/include/pcl-1.8"));
+                PublicIncludePaths.Add(Path.Combine(ModulePath, "PCL/include/pcl-1.9"));
                 PublicIncludePaths.Add(Path.Combine(ModulePath, "FLANN/include"));
                 PublicIncludePaths.Add(Path.Combine(ModulePath, "EFANNA/include"));
                 //PublicIncludePaths.Add(Path.Combine(ModulePath, "VTK/include/vtk-8.0"));
