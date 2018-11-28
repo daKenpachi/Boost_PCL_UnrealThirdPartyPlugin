@@ -119,6 +119,7 @@ namespace pcl
       using Registration<PointSource, PointTarget, Scalar>::final_transformation_;
       using Registration<PointSource, PointTarget, Scalar>::transformation_;
       using Registration<PointSource, PointTarget, Scalar>::transformation_epsilon_;
+      using Registration<PointSource, PointTarget, Scalar>::transformation_rotation_epsilon_;
       using Registration<PointSource, PointTarget, Scalar>::converged_;
       using Registration<PointSource, PointTarget, Scalar>::corr_dist_threshold_;
       using Registration<PointSource, PointTarget, Scalar>::inlier_threshold_;
@@ -167,11 +168,6 @@ namespace pcl
       {
         return convergence_criteria_;
       }
-
-	  inline int getNumberOfIterations() const
-	  {
-		  return nr_iterations_;
-	  }
 
       /** \brief Provide a pointer to the input source 
         * (e.g., the point cloud that we want to align to the target)
