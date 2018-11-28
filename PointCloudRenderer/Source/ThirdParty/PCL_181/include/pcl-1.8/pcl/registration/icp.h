@@ -169,6 +169,11 @@ namespace pcl
         return convergence_criteria_;
       }
 
+	  inline int getNumberOfIterations() const
+	  {
+		  return nr_iterations_;
+	  }
+
       /** \brief Provide a pointer to the input source 
         * (e.g., the point cloud that we want to align to the target)
         *
