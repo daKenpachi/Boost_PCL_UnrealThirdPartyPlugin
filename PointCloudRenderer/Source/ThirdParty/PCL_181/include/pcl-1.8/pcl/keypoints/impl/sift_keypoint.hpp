@@ -90,6 +90,9 @@ pcl::SIFTKeypoint<PointInT, PointOutT>::initCompute ()
   
   this->setKSearch (1);
   tree_.reset (new pcl::search::KdTree<PointInT> (true));
+
+  keypoints_indices_.reset(new pcl::PointIndices);
+  keypoints_indices_->indices.reserve(input_->size());
   return (true);
 }
 
@@ -183,6 +186,7 @@ pcl::SIFTKeypoint<PointInT, PointOutT>::detectKeypointsForOctave (
       keypoint.x = input.points[keypoint_index].x;
       keypoint.y = input.points[keypoint_index].y;
       keypoint.z = input.points[keypoint_index].z;
+	  keypoints_indices_->indices.push_back(keypoint_index);
       memcpy (reinterpret_cast<char*> (&keypoint) + out_fields_[scale_idx_].offset,
               &scales[extrema_scales[i_keypoint]], sizeof (float));
       output.points.push_back (keypoint); 
@@ -199,6 +203,7 @@ pcl::SIFTKeypoint<PointInT, PointOutT>::detectKeypointsForOctave (
       keypoint.x = input.points[keypoint_index].x;
       keypoint.y = input.points[keypoint_index].y;
       keypoint.z = input.points[keypoint_index].z;
+	  keypoints_indices_->indices.push_back(keypoint_index);
 
       output.points.push_back (keypoint); 
     }
