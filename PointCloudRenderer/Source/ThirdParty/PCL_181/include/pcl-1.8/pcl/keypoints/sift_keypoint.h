@@ -106,6 +106,7 @@ namespace pcl
       using Keypoint<PointInT, PointOutT>::indices_;
       using Keypoint<PointInT, PointOutT>::surface_;
       using Keypoint<PointInT, PointOutT>::tree_;
+	  using Keypoint<PointInT, PointOutT>::keypoints_indices_;
       using Keypoint<PointInT, PointOutT>::initCompute;    
 
       /** \brief Empty constructor. */
