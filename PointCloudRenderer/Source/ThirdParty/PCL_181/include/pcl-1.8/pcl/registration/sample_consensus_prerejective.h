@@ -91,6 +91,7 @@ namespace pcl
       using Registration<PointSource, PointTarget>::transformation_estimation_;
       using Registration<PointSource, PointTarget>::getFitnessScore;
       using Registration<PointSource, PointTarget>::converged_;
+	  using Registration<PointSource, PointTarget>::nr_iterations_;
 
       typedef typename Registration<PointSource, PointTarget>::PointCloudSource PointCloudSource;
       typedef typename PointCloudSource::Ptr PointCloudSourcePtr;
@@ -239,6 +240,13 @@ namespace pcl
       {
         return inliers_;
       }
+
+	  inline int
+		  getIterations() const
+	  {
+		  return nr_iterations_;
+	  }
+
 
     protected:
       /** \brief Choose a random index between 0 and n-1

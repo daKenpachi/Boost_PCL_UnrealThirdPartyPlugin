@@ -232,6 +232,7 @@ pcl::SampleConsensusPrerejective<PointSource, PointTarget, FeatureT>::computeTra
   // Feature correspondence cache
   std::vector<std::vector<int> > similar_features (input_->size ());
   
+  nr_iterations_ = 0;
   // Start
   for (int i = 0; i < max_iterations_; ++i)
   {
@@ -278,6 +279,7 @@ pcl::SampleConsensusPrerejective<PointSource, PointTarget, FeatureT>::computeTra
       converged_ = true;
       final_transformation_ = transformation_;
     }
+	nr_iterations_++;
   }
 
   // Apply the final transformation
